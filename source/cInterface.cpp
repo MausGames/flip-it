@@ -89,18 +89,18 @@ void cInterface::Move()
     else if(fTime <= -GAME_DELAY)
     {
         coreUintW  iWinIndex = 0u;
-        coreUint32 fWinCount = g_pField->CalcCount(0u);
+        coreUint32 iWinCount = g_pField->CalcCount(0u);
         coreUint8  iSame     = 1u;
 
         for(coreUintW i = 1u; i < PLAYERS; ++i)
         {
             const coreUint32 fNewCount = g_pField->CalcCount(i);
-            if(fNewCount > fWinCount)
+            if(fNewCount > iWinCount)
             {
                 iWinIndex = i;
-                fWinCount = fNewCount;
+                iWinCount = fNewCount;
             }
-            else if(fNewCount == fWinCount)
+            else if(fNewCount == iWinCount)
             {
                 iSame += 1u;
             }
@@ -109,7 +109,7 @@ void cInterface::Move()
         if(iSame == PLAYERS) m_Countdown.SetText("DRAW!");
                         else m_Countdown.SetText(PRINT("PLAYER %zu WINS!", iWinIndex + 1u));
 
-        m_Time.SetText(PRINT("%.0f%%", 100.0f * (fWinCount / I_TO_F(SIZE_TOTAL_EXT))));
+        m_Time.SetText(PRINT("%.0f%%", 100.0f * (I_TO_F(iWinCount) / I_TO_F(SIZE_TOTAL_EXT))));
     }
     else if(fTime <= 0.0f) m_Countdown.SetText("TIME UP!");
     else if(fTime <= 3.0f) m_Countdown.SetText(PRINT("%.0f", fTime));
