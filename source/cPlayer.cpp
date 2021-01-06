@@ -17,7 +17,7 @@ cPlayer::cPlayer()noexcept
 , m_fSpeed       (PLAYER_SPEED_SLOW)
 , m_iSpeedCount  (0u)
 {
-    this->DefineModel  ("object_sphere.md3");
+    this->DefineModel  ("default_sphere.md3");
     this->DefineTexture(0u, "default_white.png");
     this->DefineProgram("object_program");
 

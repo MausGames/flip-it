@@ -23,18 +23,18 @@ const coreBool        CoreApp::Settings::RenderBuffer::StereoRender = false;
 // setup the application
 void CoreApp::Setup()
 {
-    Core::Manager::Resource->Load<coreModel>  ("default_cube.md3",  CORE_RESOURCE_UPDATE_AUTO,   "data/models/default_cube.md3");
-    Core::Manager::Resource->Load<coreModel>  ("object_sphere.md3", CORE_RESOURCE_UPDATE_AUTO,   "data/models/object_sphere.md3");
+    Core::Manager::Resource->Load<coreModel>  ("default_cube.md3",   CORE_RESOURCE_UPDATE_AUTO,   "data/models/default_cube.md3");
+    Core::Manager::Resource->Load<coreModel>  ("default_sphere.md3", CORE_RESOURCE_UPDATE_AUTO,   "data/models/default_sphere.md3");
 
-    Core::Manager::Resource->Load<coreTexture>("item.png",          CORE_RESOURCE_UPDATE_AUTO,   "data/textures/item.png");
-    Core::Manager::Resource->Load<coreTexture>("tile.png",          CORE_RESOURCE_UPDATE_AUTO,   "data/textures/tile.png");
+    Core::Manager::Resource->Load<coreTexture>("item.png",           CORE_RESOURCE_UPDATE_AUTO,   "data/textures/item.png");
+    Core::Manager::Resource->Load<coreTexture>("tile.png",           CORE_RESOURCE_UPDATE_AUTO,   "data/textures/tile.png");
 
-    Core::Manager::Resource->Load<coreShader> ("object.vert",       CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/object.vert");
-    Core::Manager::Resource->Load<coreShader> ("object.frag",       CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/object.frag");
-    Core::Manager::Resource->Load<coreShader> ("tile.vert",         CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/tile.vert");
-    Core::Manager::Resource->Load<coreShader> ("tile.frag",         CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/tile.frag");
-    Core::Manager::Resource->Load<coreShader> ("tile_inst.vert",    CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/tile.vert", CORE_SHADER_OPTION_INSTANCING);
-    Core::Manager::Resource->Load<coreShader> ("tile_inst.frag",    CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/tile.frag", CORE_SHADER_OPTION_INSTANCING);
+    Core::Manager::Resource->Load<coreShader> ("object.vert",        CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/object.vert");
+    Core::Manager::Resource->Load<coreShader> ("object.frag",        CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/object.frag");
+    Core::Manager::Resource->Load<coreShader> ("tile.vert",          CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/tile.vert");
+    Core::Manager::Resource->Load<coreShader> ("tile.frag",          CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/tile.frag");
+    Core::Manager::Resource->Load<coreShader> ("tile_inst.vert",     CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/tile.vert", CORE_SHADER_OPTION_INSTANCING);
+    Core::Manager::Resource->Load<coreShader> ("tile_inst.frag",     CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/tile.frag", CORE_SHADER_OPTION_INSTANCING);
 
     d_cast<coreProgram*>(Core::Manager::Resource->Load<coreProgram>("object_program", CORE_RESOURCE_UPDATE_AUTO, NULL)->GetRawResource())
         ->AttachShader("object.vert")
