@@ -17,7 +17,7 @@ class cGame final
 private:
     cPlayer m_aPlayer[PLAYERS];
 
-    std::vector<cItem*> m_aItem;
+    coreList<cItem*> m_aItem;
     coreFlow  m_fItemDelay;
     coreUint8 m_iItemLastPos;
     coreUint8 m_iItemLastType;

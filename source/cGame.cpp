@@ -166,8 +166,8 @@ void cGame::Move()
             const coreVector2 vVel1 = pPlayer1->GetVelocity();
             const coreVector2 vVel2 = pPlayer2->GetVelocity();
 
-            pPlayer1->SetVelocity(coreVector2::Reflect(vVel1,  vDiff) + vVel2 * 0.5f +  vDiff * Core::System->GetTime());
-            pPlayer2->SetVelocity(coreVector2::Reflect(vVel2, -vDiff) + vVel1 * 0.5f + -vDiff * Core::System->GetTime());
+            pPlayer1->SetVelocity(coreVector2::Reflect(vVel1,  vDiff) + vVel2 * 0.5f +  vDiff * TIME);
+            pPlayer2->SetVelocity(coreVector2::Reflect(vVel2, -vDiff) + vVel1 * 0.5f + -vDiff * TIME);
         });
     }
 
