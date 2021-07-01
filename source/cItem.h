@@ -38,7 +38,7 @@ public:
 class cSideItem final : public cItem
 {
 public:
-    cSideItem(const coreVector2& vDir)noexcept;
+    cSideItem(const coreVector2 vDir)noexcept;
 
     ENABLE_COPY(cSideItem)
 

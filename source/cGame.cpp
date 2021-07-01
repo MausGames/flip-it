@@ -27,7 +27,7 @@ cGame::cGame()noexcept
     m_aPlayer[1].SetTileType   (1u);
     m_aPlayer[1].SetControlType(1u);
 
-    m_aItem.reserve(16u);
+    m_apItem.reserve(16u);
 
     m_Interface.SetColor(0u, COLOR_PLAYER_1);
     m_Interface.SetColor(1u, COLOR_PLAYER_2);
@@ -49,7 +49,7 @@ void cGame::Render()
         for(coreUintW i = 0u; i < PLAYERS; ++i)
             m_aPlayer[i].Render();
 
-        FOR_EACH(it, m_aItem)
+        FOR_EACH(it, m_apItem)
             (*it)->Render();
 
         m_Interface.Render();
@@ -128,7 +128,7 @@ void cGame::Move()
                 }
             }
 
-            FOR_EACH(it, m_aItem)
+            FOR_EACH(it, m_apItem)
             {
                 if((*it)->GetState()) continue;
 
@@ -140,12 +140,12 @@ void cGame::Move()
             }
         }
 
-        FOR_EACH_DYN(it, m_aItem)
+        FOR_EACH_DYN(it, m_apItem)
         {
             if((*it)->GetState() == 2u)
             {
                 SAFE_DELETE(*it)
-                DYN_REMOVE(it, m_aItem)
+                DYN_REMOVE(it, m_apItem)
             }
             else
             {
@@ -154,7 +154,7 @@ void cGame::Move()
             }
         }
 
-        Core::Manager::Object->TestCollision(1, [](cPlayer* OUTPUT pPlayer1, cPlayer* OUTPUT pPlayer2, const coreVector3& vIntersection, const coreBool bFirstHit)
+        Core::Manager::Object->TestCollision(1, [](cPlayer* OUTPUT pPlayer1, cPlayer* OUTPUT pPlayer2, const coreVector3 vIntersection, const coreBool bFirstHit)
         {
             if(!bFirstHit) return;
 
@@ -176,18 +176,18 @@ void cGame::Move()
 
 
 // ****************************************************************
-void cGame::AddItem(cItem* pItem, const coreVector2& vPosition)
+void cGame::AddItem(cItem* pItem, const coreVector2 vPosition)
 {
     pItem->SetPosition(coreVector3(vPosition, 0.0f));
-    m_aItem.push_back(pItem);
+    m_apItem.push_back(pItem);
 }
 
 
 // ****************************************************************
 void cGame::ClearItems()
 {
-    FOR_EACH(it, m_aItem)
+    FOR_EACH(it, m_apItem)
         SAFE_DELETE(*it)
 
-    m_aItem.clear();
+    m_apItem.clear();
 }

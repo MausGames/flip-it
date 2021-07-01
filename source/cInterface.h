@@ -31,7 +31,7 @@ public:
     void Render();
     void Move();
 
-    void SetColor(const coreUintW iIndex, const coreVector3& vColor);
+    void SetColor(const coreUintW iIndex, const coreVector3 vColor);
 };
 
 

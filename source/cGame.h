@@ -17,7 +17,7 @@ class cGame final
 private:
     cPlayer m_aPlayer[PLAYERS];
 
-    coreList<cItem*> m_aItem;
+    coreList<cItem*> m_apItem;
     coreFlow  m_fItemDelay;
     coreUint8 m_iItemLastPos;
     coreUint8 m_iItemLastType;
@@ -37,7 +37,7 @@ public:
     void Render();
     void Move();
 
-    void AddItem(cItem* pItem, const coreVector2& vPosition);
+    void AddItem(cItem* pItem, const coreVector2 vPosition);
     void ClearItems();
 
     inline const coreFloat& GetTime()const {return m_fTime;}

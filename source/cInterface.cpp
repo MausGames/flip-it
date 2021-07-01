@@ -127,7 +127,7 @@ void cInterface::Move()
 
 
 // ****************************************************************
-void cInterface::SetColor(const coreUintW iIndex, const coreVector3& vColor)
+void cInterface::SetColor(const coreUintW iIndex, const coreVector3 vColor)
 {
     ASSERT(iIndex < PLAYERS)
 

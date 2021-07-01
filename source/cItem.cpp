@@ -38,7 +38,7 @@ void cItem::Move()
 
 
 // ****************************************************************
-cSideItem::cSideItem(const coreVector2& vDir)noexcept
+cSideItem::cSideItem(const coreVector2 vDir)noexcept
 {
     this->SetDirection(coreVector3(vDir, 0.0f));
     this->SetColor3   (COLOR_ORANGE * 0.9f);

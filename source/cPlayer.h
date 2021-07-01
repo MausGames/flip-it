@@ -34,9 +34,9 @@ public:
     void IncreaseSpeed();
     void DecreaseSpeed();
 
-    inline void SetTileType   (const coreUint8    iType)     {m_iTileType    = iType;}
-    inline void SetControlType(const coreUint8    iType)     {m_iControlType = iType;}
-    inline void SetVelocity   (const coreVector2& vVelocity) {m_vVelocity    = vVelocity;}
+    inline void SetTileType   (const coreUint8   iType)     {m_iTileType    = iType;}
+    inline void SetControlType(const coreUint8   iType)     {m_iControlType = iType;}
+    inline void SetVelocity   (const coreVector2 vVelocity) {m_vVelocity    = vVelocity;}
 
     inline const coreUint8&   GetTileType   ()const {return m_iTileType;}
     inline const coreUint8&   GetControlType()const {return m_iControlType;}

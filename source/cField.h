@@ -34,7 +34,7 @@ public:
     void Render()final;
     void Move  ()final;
 
-    void TurnTile(const coreUintW iIndex, const coreVector3& vNewColor, const coreUint8 iNewType, const coreFloat fDelay = 0.0f);
+    void TurnTile(const coreUintW iIndex, const coreVector3 vNewColor, const coreUint8 iNewType, const coreFloat fDelay = 0.0f);
 
     void Extend();
     coreBool        SkipExtendedTile(const coreUintW iIndex)const;

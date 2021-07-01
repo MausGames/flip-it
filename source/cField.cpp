@@ -105,7 +105,7 @@ void cField::Move()
 
 
 // ****************************************************************
-void cField::TurnTile(const coreUintW iIndex, const coreVector3& vNewColor, const coreUint8 iNewType, const coreFloat fDelay)
+void cField::TurnTile(const coreUintW iIndex, const coreVector3 vNewColor, const coreUint8 iNewType, const coreFloat fDelay)
 {
     ASSERT(iIndex < SIZE_TOTAL_EXT)
 
