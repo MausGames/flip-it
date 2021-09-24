@@ -102,8 +102,8 @@ void cGame::Move()
             {
             default: ASSERT(false)
             case 0: this->AddItem(new cSideItem     (Core::Rand->Bool() ? coreVector2(1.0f,0.0f) : coreVector2(0.0f,1.0f)), vPosition); break;
-            case 1: this->AddItem(new cExplosionItem(), vPosition); break;
-            case 2: this->AddItem(new cSpeedItem    (), vPosition); break;
+            case 1: this->AddItem(new cExplosionItem(),                                                                     vPosition); break;
+            case 2: this->AddItem(new cSpeedItem    (),                                                                     vPosition); break;
             }
 
             m_fItemDelay = ITEM_DELAY;

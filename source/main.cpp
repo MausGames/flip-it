@@ -37,8 +37,6 @@ void CoreApp::Exit()
 // render the application
 void CoreApp::Render()
 {
-    glClear(GL_COLOR_BUFFER_BIT);
-
     g_pField->Render();
     g_pGame ->Render();
 }
