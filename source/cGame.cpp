@@ -77,8 +77,8 @@ void cGame::Move()
         m_fItemDelay.Update(-1.0f);
         if(m_fItemDelay <= 0.0f)
         {
-            const coreUint8 iNumPos = g_pField->GetExtended() ? 8 : 4;
-            m_iItemLastPos = (m_iItemLastPos + Core::Rand->Int(1, iNumPos-1)) % iNumPos;
+            const coreUint8 iNumPos = g_pField->GetExtended() ? 8u : 4u;
+            m_iItemLastPos = (m_iItemLastPos + Core::Rand->Uint(1u, iNumPos-1u)) % iNumPos;
 
             coreVector2 vPosition;
             switch(m_iItemLastPos)
@@ -96,7 +96,7 @@ void cGame::Move()
             vPosition *= 30.0f;
             vPosition += FIELD_POSITION;
 
-            m_iItemLastType = (m_iItemLastType + Core::Rand->Int(1, 2)) % 3;
+            m_iItemLastType = (m_iItemLastType + Core::Rand->Uint(1u, 2u)) % 3u;
 
             switch(m_iItemLastType)
             {
