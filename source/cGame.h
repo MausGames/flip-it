@@ -2,8 +2,8 @@
 //*-----------------------------------------------*//
 //| Part of Flip It (https://www.maus-games.at)   |//
 //*-----------------------------------------------*//
+//| Copyright (c) 2019 Martin Mauersics           |//
 //| Released under the zlib License               |//
-//| More information available in the readme file |//
 //*-----------------------------------------------*//
 /////////////////////////////////////////////////////
 #pragma once
