@@ -65,9 +65,9 @@ void cField::Move()
         if(m_abTurnState[i])
         {
             m_afTurnTime[i].Update(1.0f);
-            m_afTurnTime[i] = MIN(m_afTurnTime[i], 1.0f);
+            m_afTurnTime[i] = MIN1(m_afTurnTime[i]);
 
-            const coreVector2 vDir = coreVector2::Direction(MAX(m_afTurnTime[i], 0.0f) * PI);
+            const coreVector2 vDir = coreVector2::Direction(MAX0(m_afTurnTime[i]) * PI);
 
             m_aTile[i].SetDirection  (coreVector3(vDir, 0.0f));
             m_aTile[i].SetOrientation(coreVector3(-vDir.x*vDir.y, vDir.x*vDir.x, vDir.y));
