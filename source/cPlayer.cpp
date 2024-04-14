@@ -18,7 +18,7 @@ cPlayer::cPlayer()noexcept
 , m_iSpeedCount  (0u)
 {
     this->DefineModel  ("default_sphere.md3");
-    this->DefineTexture(0u, "default_white.png");
+    this->DefineTexture(0u, "default_white.webp");
     this->DefineProgram("object_program");
 
     this->SetSize(coreVector3(1.0f,1.0f,1.0f) * PLAYER_SIZE);
@@ -44,21 +44,21 @@ void cPlayer::Move()
 
         if(m_iControlType == 0u)
         {
-                 if(Core::Input->GetKeyboardButton(CORE_INPUT_KEY(D), CORE_INPUT_HOLD)) vMove.x += 1.0f;
-            else if(Core::Input->GetKeyboardButton(CORE_INPUT_KEY(A), CORE_INPUT_HOLD)) vMove.x -= 1.0f;
-                 if(Core::Input->GetKeyboardButton(CORE_INPUT_KEY(W), CORE_INPUT_HOLD)) vMove.y += 1.0f;
-            else if(Core::Input->GetKeyboardButton(CORE_INPUT_KEY(S), CORE_INPUT_HOLD)) vMove.y -= 1.0f;
+            if(Core::Input->GetKeyboardButton(CORE_INPUT_KEY(D), CORE_INPUT_HOLD)) vMove.x += 1.0f;
+            if(Core::Input->GetKeyboardButton(CORE_INPUT_KEY(A), CORE_INPUT_HOLD)) vMove.x -= 1.0f;
+            if(Core::Input->GetKeyboardButton(CORE_INPUT_KEY(W), CORE_INPUT_HOLD)) vMove.y += 1.0f;
+            if(Core::Input->GetKeyboardButton(CORE_INPUT_KEY(S), CORE_INPUT_HOLD)) vMove.y -= 1.0f;
 
-            vMove += Core::Input->GetJoystickRelativeL(0u);
+            vMove += Core::Input->GetJoystickStickL(0u);
         }
         else if(m_iControlType == 1u)
         {
-                 if(Core::Input->GetKeyboardButton(CORE_INPUT_KEY(RIGHT), CORE_INPUT_HOLD)) vMove.x += 1.0f;
-            else if(Core::Input->GetKeyboardButton(CORE_INPUT_KEY(LEFT),  CORE_INPUT_HOLD)) vMove.x -= 1.0f;
-                 if(Core::Input->GetKeyboardButton(CORE_INPUT_KEY(UP),    CORE_INPUT_HOLD)) vMove.y += 1.0f;
-            else if(Core::Input->GetKeyboardButton(CORE_INPUT_KEY(DOWN),  CORE_INPUT_HOLD)) vMove.y -= 1.0f;
+            if(Core::Input->GetKeyboardButton(CORE_INPUT_KEY(RIGHT), CORE_INPUT_HOLD)) vMove.x += 1.0f;
+            if(Core::Input->GetKeyboardButton(CORE_INPUT_KEY(LEFT),  CORE_INPUT_HOLD)) vMove.x -= 1.0f;
+            if(Core::Input->GetKeyboardButton(CORE_INPUT_KEY(UP),    CORE_INPUT_HOLD)) vMove.y += 1.0f;
+            if(Core::Input->GetKeyboardButton(CORE_INPUT_KEY(DOWN),  CORE_INPUT_HOLD)) vMove.y -= 1.0f;
 
-            vMove += Core::Input->GetJoystickRelativeL(1u);
+            vMove += Core::Input->GetJoystickStickL(1u);
         }
 
         if(!vMove.IsNull()) vMove = vMove.Normalized();

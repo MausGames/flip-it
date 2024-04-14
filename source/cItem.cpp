@@ -13,8 +13,8 @@
 cItem::cItem()noexcept
 : m_iState (0u)
 {
-    this->DefineModel  ("default_cube.md3");
-    this->DefineTexture(0u, "item.png");
+    this->DefineModel  ("cube.md3");
+    this->DefineTexture(0u, "item.webp");
     this->DefineProgram("object_program");
 
     this->SetSize   (coreVector3(1.0f,1.0f,1.0f) * ITEM_SIZE);

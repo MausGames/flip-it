@@ -23,7 +23,7 @@ cField::cField()noexcept
     for(coreUintW i = 0u; i < SIZE_TOTAL_EXT; ++i)
     {
         m_aTile[i].DefineModel  (Core::Manager::Object->GetLowQuad());
-        m_aTile[i].DefineTexture(0u, "tile.png");
+        m_aTile[i].DefineTexture(0u, "tile.webp");
         m_aTile[i].DefineProgram("tile_program");
 
         const coreIntW X = i % SIZE_X_EXT;

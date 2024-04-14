@@ -9,27 +9,33 @@
 
 // ****************************************************************
 // project settings
-const coreChar* const CoreApp::Settings::Name                   = "Flip It";
-const coreChar* const CoreApp::Settings::IconPath               = "data/textures/game_icon.png";
-const coreChar* const CoreApp::Settings::CursorPath             = "data/textures/default_cursor.png";
-const coreBool        CoreApp::Settings::UserManagement         = false;
-const coreUint8       CoreApp::Settings::Graphics::DepthSize    = 16u;
-const coreUint8       CoreApp::Settings::Graphics::StencilSize  = 0u;
-const coreBool        CoreApp::Settings::Graphics::AlphaChannel = false;
-const coreBool        CoreApp::Settings::Graphics::DoubleBuffer = true;
-const coreBool        CoreApp::Settings::Graphics::StereoRender = false;
-const coreUint32      CoreApp::Settings::Platform::SteamAppID    = 0u;
+const coreChar* const CoreApp::Settings::Name                          = "Flip It";
+const coreChar* const CoreApp::Settings::Version                       = "1.0.0";
+const coreChar* const CoreApp::Settings::IconPath                      = "data/textures/game_icon.webp";
+const coreChar* const CoreApp::Settings::CursorPath                    = "data/textures/default_cursor.webp";
+const coreBool        CoreApp::Settings::UserManagement                = false;
+const coreUint8       CoreApp::Settings::Graphics::DepthSize           = 16u;
+const coreUint8       CoreApp::Settings::Graphics::StencilSize         = 0u;
+const coreBool        CoreApp::Settings::Graphics::AlphaChannel        = false;
+const coreBool        CoreApp::Settings::Graphics::DoubleBuffer        = true;
+const coreBool        CoreApp::Settings::Graphics::StereoRender        = false;
+const coreUint32      CoreApp::Settings::Platform::SteamAppID          = 0u;
+const coreChar* const CoreApp::Settings::Platform::EpicProductID       = NULL;
+const coreChar* const CoreApp::Settings::Platform::EpicSandboxID   [3] = {NULL, NULL, NULL};
+const coreChar* const CoreApp::Settings::Platform::EpicDeploymentID[3] = {NULL, NULL, NULL};
+const coreChar* const CoreApp::Settings::Platform::EpicClientID        = NULL;
+const coreChar* const CoreApp::Settings::Platform::EpicClientSecret    = NULL;
 
 
 // ****************************************************************
 // setup the application
 void CoreApp::Setup()
 {
-    Core::Manager::Resource->Load<coreModel>  ("default_cube.md3",   CORE_RESOURCE_UPDATE_AUTO,   "data/models/default_cube.md3");
+    Core::Manager::Resource->Load<coreModel>  ("cube.md3",           CORE_RESOURCE_UPDATE_AUTO,   "data/models/cube.md3");
     Core::Manager::Resource->Load<coreModel>  ("default_sphere.md3", CORE_RESOURCE_UPDATE_AUTO,   "data/models/default_sphere.md3");
 
-    Core::Manager::Resource->Load<coreTexture>("item.png",           CORE_RESOURCE_UPDATE_AUTO,   "data/textures/item.png");
-    Core::Manager::Resource->Load<coreTexture>("tile.png",           CORE_RESOURCE_UPDATE_AUTO,   "data/textures/tile.png");
+    Core::Manager::Resource->Load<coreTexture>("item.webp",          CORE_RESOURCE_UPDATE_AUTO,   "data/textures/item.webp", CORE_TEXTURE_LOAD_R);
+    Core::Manager::Resource->Load<coreTexture>("tile.webp",          CORE_RESOURCE_UPDATE_AUTO,   "data/textures/tile.webp", CORE_TEXTURE_LOAD_R);
 
     Core::Manager::Resource->Load<coreShader> ("object.vert",        CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/object.vert");
     Core::Manager::Resource->Load<coreShader> ("object.frag",        CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/object.frag");

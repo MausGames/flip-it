@@ -14,7 +14,7 @@ cInterface::cInterface()noexcept
 {
     for(coreUintW i = 0u; i < PLAYERS; ++i)
     {
-        m_Identifier[i].DefineTexture(0u, "tile.png");
+        m_Identifier[i].DefineTexture(0u, "tile.webp");
         m_Identifier[i].DefineProgram("default_2d_program");
 
         m_Identifier[i].SetSize   (coreVector2(0.1f,0.1f));
@@ -29,7 +29,7 @@ cInterface::cInterface()noexcept
 
     for(coreUintW i = 0u; i < PLAYERS; ++i)
     {
-        m_Bar[i].DefineTexture(0u, "default_white.png");
+        m_Bar[i].DefineTexture(0u, "default_white.webp");
         m_Bar[i].DefineProgram("default_2d_program");
 
         m_Bar[i].SetPosition(coreVector2((BAR_LENGTH * 0.5f) + 0.003f, m_Identifier[0].GetPosition().y) * coreVector2(SIGN(m_Identifier[i].GetPosition().x), 1.0f));

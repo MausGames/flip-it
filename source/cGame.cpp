@@ -83,7 +83,7 @@ void cGame::Move()
             coreVector2 vPosition;
             switch(m_iItemLastPos)
             {
-            default: ASSERT(false)
+            default: UNREACHABLE
             case 0: vPosition = coreVector2( 0.5f, 0.5f); break;
             case 1: vPosition = coreVector2( 0.5f,-0.5f); break;
             case 2: vPosition = coreVector2(-0.5f, 0.5f); break;
@@ -100,7 +100,7 @@ void cGame::Move()
 
             switch(m_iItemLastType)
             {
-            default: ASSERT(false)
+            default: UNREACHABLE
             case 0: this->AddItem(new cSideItem     (Core::Rand->Bool() ? coreVector2(1.0f,0.0f) : coreVector2(0.0f,1.0f)), vPosition); break;
             case 1: this->AddItem(new cExplosionItem(),                                                                     vPosition); break;
             case 2: this->AddItem(new cSpeedItem    (),                                                                     vPosition); break;
@@ -150,7 +150,7 @@ void cGame::Move()
             else
             {
                 (*it)->Move();
-                DYN_KEEP(it)
+                DYN_KEEP(it, m_apItem)
             }
         }
 
