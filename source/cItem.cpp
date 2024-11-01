@@ -13,7 +13,7 @@
 cItem::cItem()noexcept
 : m_iState (0u)
 {
-    this->DefineModel  ("cube.md3");
+    this->DefineModel  ("cube.md3z");
     this->DefineTexture(0u, "item.webp");
     this->DefineProgram("object_program");
 

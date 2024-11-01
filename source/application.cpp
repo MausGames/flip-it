@@ -19,30 +19,32 @@ const coreUint8       CoreApp::Settings::Graphics::StencilSize         = 0u;
 const coreBool        CoreApp::Settings::Graphics::AlphaChannel        = false;
 const coreBool        CoreApp::Settings::Graphics::DoubleBuffer        = true;
 const coreBool        CoreApp::Settings::Graphics::StereoRender        = false;
-const coreUint32      CoreApp::Settings::Platform::SteamAppID          = 0u;
+const coreUint32      CoreApp::Settings::Platform::SteamAppID[2]       = {0u, 0u};
 const coreChar* const CoreApp::Settings::Platform::EpicProductID       = NULL;
 const coreChar* const CoreApp::Settings::Platform::EpicSandboxID   [3] = {NULL, NULL, NULL};
 const coreChar* const CoreApp::Settings::Platform::EpicDeploymentID[3] = {NULL, NULL, NULL};
 const coreChar* const CoreApp::Settings::Platform::EpicClientID        = NULL;
 const coreChar* const CoreApp::Settings::Platform::EpicClientSecret    = NULL;
 
+coreBool CoreApp::Settings::IsDemo() {return false;}
+
 
 // ****************************************************************
 // setup the application
 void CoreApp::Setup()
 {
-    Core::Manager::Resource->Load<coreModel>  ("cube.md3",           CORE_RESOURCE_UPDATE_AUTO,   "data/models/cube.md3");
-    Core::Manager::Resource->Load<coreModel>  ("default_sphere.md3", CORE_RESOURCE_UPDATE_AUTO,   "data/models/default_sphere.md3");
+    Core::Manager::Resource->Load<coreModel>  ("cube.md3z",           CORE_RESOURCE_UPDATE_AUTO,   "data/models/cube.md3z");
+    Core::Manager::Resource->Load<coreModel>  ("default_sphere.md3z", CORE_RESOURCE_UPDATE_AUTO,   "data/models/default_sphere.md3z");
 
-    Core::Manager::Resource->Load<coreTexture>("item.webp",          CORE_RESOURCE_UPDATE_AUTO,   "data/textures/item.webp", CORE_TEXTURE_LOAD_R);
-    Core::Manager::Resource->Load<coreTexture>("tile.webp",          CORE_RESOURCE_UPDATE_AUTO,   "data/textures/tile.webp", CORE_TEXTURE_LOAD_R);
+    Core::Manager::Resource->Load<coreTexture>("item.webp",           CORE_RESOURCE_UPDATE_AUTO,   "data/textures/item.webp", CORE_TEXTURE_LOAD_R);
+    Core::Manager::Resource->Load<coreTexture>("tile.webp",           CORE_RESOURCE_UPDATE_AUTO,   "data/textures/tile.webp", CORE_TEXTURE_LOAD_R);
 
-    Core::Manager::Resource->Load<coreShader> ("object.vert",        CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/object.vert");
-    Core::Manager::Resource->Load<coreShader> ("object.frag",        CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/object.frag");
-    Core::Manager::Resource->Load<coreShader> ("tile.vert",          CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/tile.vert");
-    Core::Manager::Resource->Load<coreShader> ("tile.frag",          CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/tile.frag");
-    Core::Manager::Resource->Load<coreShader> ("tile_inst.vert",     CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/tile.vert", CORE_SHADER_OPTION_INSTANCING);
-    Core::Manager::Resource->Load<coreShader> ("tile_inst.frag",     CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/tile.frag", CORE_SHADER_OPTION_INSTANCING);
+    Core::Manager::Resource->Load<coreShader> ("object.vert",         CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/object.vert");
+    Core::Manager::Resource->Load<coreShader> ("object.frag",         CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/object.frag");
+    Core::Manager::Resource->Load<coreShader> ("tile.vert",           CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/tile.vert");
+    Core::Manager::Resource->Load<coreShader> ("tile.frag",           CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/tile.frag");
+    Core::Manager::Resource->Load<coreShader> ("tile_inst.vert",      CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/tile.vert", CORE_SHADER_OPTION_INSTANCING);
+    Core::Manager::Resource->Load<coreShader> ("tile_inst.frag",      CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/tile.frag", CORE_SHADER_OPTION_INSTANCING);
 
     d_cast<coreProgram*>(Core::Manager::Resource->Load<coreProgram>("object_program", CORE_RESOURCE_UPDATE_AUTO, NULL)->GetRawResource())
         ->AttachShader("object.vert")
