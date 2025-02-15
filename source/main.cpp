@@ -48,6 +48,11 @@ void CoreApp::Render()
 // move the application
 void CoreApp::Move()
 {
+    if(Core::System->GetWinSizeChanged())
+    {
+        Core::Reshape();
+    }
+
     if(Core::Input->GetKeyboardButton(CORE_INPUT_KEY(SPACE), CORE_INPUT_PRESS))
     {
         STATIC_DELETE(g_pGame)

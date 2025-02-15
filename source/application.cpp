@@ -11,9 +11,14 @@
 // project settings
 const coreChar* const CoreApp::Settings::Name                          = "Flip It";
 const coreChar* const CoreApp::Settings::Version                       = "1.0.0";
+const coreChar* const CoreApp::Settings::Identifier                    = "at.maus-games.flip-it";
+const coreChar* const CoreApp::Settings::Creator                       = "Martin Mauersics";
+const coreChar* const CoreApp::Settings::Year                          = "2019";
+const coreChar* const CoreApp::Settings::Website                       = "https://www.maus-games.at";
 const coreChar* const CoreApp::Settings::IconPath                      = "data/textures/game_icon.webp";
 const coreChar* const CoreApp::Settings::CursorPath                    = "data/textures/default_cursor.webp";
 const coreBool        CoreApp::Settings::UserManagement                = false;
+const coreDouble      CoreApp::Settings::System::AspectRatio           = 11.0/8.0;
 const coreUint8       CoreApp::Settings::Graphics::DepthSize           = 16u;
 const coreUint8       CoreApp::Settings::Graphics::StencilSize         = 0u;
 const coreBool        CoreApp::Settings::Graphics::AlphaChannel        = false;
