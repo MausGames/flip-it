@@ -11,7 +11,8 @@
 
 // ****************************************************************
 IItem::IItem()noexcept
-: m_iState (0u)
+: coreObject3D ()
+, m_iState     (0u)
 {
     this->DefineModel  ("cube.md3z");
     this->DefineTexture(0u, "item.webp");
@@ -39,6 +40,7 @@ void IItem::Move()
 
 // ****************************************************************
 CSideItem::CSideItem(const coreVector2 vDir)noexcept
+: IItem ()
 {
     this->SetDirection(coreVector3(vDir, 0.0f));
     this->SetColor3   (COLOR_ORANGE * 0.9f);
@@ -71,6 +73,7 @@ void CSideItem::ApplyEffect(CPlayer* OUTPUT pPlayer)
 
 // ****************************************************************
 CExplosionItem::CExplosionItem()noexcept
+: IItem ()
 {
     this->SetColor3   (COLOR_RED * 0.9f);
     this->SetTexOffset(coreVector2(0.0f,0.0f));
@@ -98,7 +101,8 @@ void CExplosionItem::ApplyEffect(CPlayer* OUTPUT pPlayer)
 
 // ****************************************************************
 CSpeedItem::CSpeedItem()noexcept
-: m_pPlayer (NULL)
+: IItem     ()
+, m_pPlayer (NULL)
 , m_fTime   (0.0f)
 {
     this->SetColor3   (COLOR_PURPLE * 0.9f);

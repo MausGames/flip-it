@@ -11,7 +11,9 @@
 
 // ****************************************************************
 CField::CField()noexcept
-: m_TileList    (SIZE_TOTAL_EXT)
+: coreObject3D  ()
+, m_TileList    (SIZE_TOTAL_EXT)
+, m_aTile       {}
 , m_afTurnTime  {}
 , m_aiTurnColor {}
 , m_aiTurnType  {}

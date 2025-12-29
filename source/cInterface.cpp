@@ -11,6 +11,11 @@
 
 // ****************************************************************
 CInterface::CInterface()noexcept
+: m_Identifier {}
+, m_Bar        {}
+, m_Title      ()
+, m_Time       ()
+, m_Countdown  ()
 {
     for(coreUintW i = 0u; i < PLAYERS; ++i)
     {

@@ -11,7 +11,8 @@
 
 // ****************************************************************
 CPlayer::CPlayer()noexcept
-: m_iTileType    (0u)
+: coreObject3D   ()
+, m_iTileType    (0u)
 , m_iControlType (0u)
 , m_vVelocity    (coreVector2(0.0f,0.0f))
 , m_fSpeed       (PLAYER_SPEED_SLOW)

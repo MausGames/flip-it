@@ -11,9 +11,12 @@
 
 // ****************************************************************
 CGame::CGame()noexcept
-: m_fItemDelay    (ITEM_DELAY)
+: m_aPlayer       {}
+, m_apItem        {}
+, m_fItemDelay    (ITEM_DELAY)
 , m_iItemLastPos  (0u)
 , m_iItemLastType (0u)
+, m_Interface     ()
 , m_fTime         (GAME_TIME + GAME_COUNTDOWN + GAME_WAIT)
 , m_bStarted      (false)
 {
