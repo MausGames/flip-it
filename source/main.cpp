@@ -19,7 +19,7 @@ void CoreApp::Init()
     Core::Graphics->SetCamera(CAMERA_POSITION, CAMERA_DIRECTION, CAMERA_ORIENTATION);
     Core::Graphics->SetView(Core::System->GetResolution(), DEG_TO_RAD(45.0f), 50.0f, 500.0f, 0.0f);
 
-    Core::System->SetWindowAll(Core::System->GetDisplayIndex(), coreVector2(1100.0f,800.0f), CORE_SYSTEM_MODE_WINDOWED);
+    Core::System->SetWindowAll(Core::System->GetDisplayIndex(), coreVector2(1100.0f,800.0f), 0.0f, CORE_SYSTEM_MODE_WINDOWED);
 
     STATIC_NEW(g_pField)
     STATIC_NEW(g_pGame)

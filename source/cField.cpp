@@ -38,7 +38,7 @@ CField::CField()noexcept
         m_aTile[i].SetTexOffset(coreVector2(0.0f,0.0f));
         m_aTile[i].SetTexSize  (coreVector2(0.01f,0.01f));
 
-        m_TileList.BindObject(&m_aTile[i]);
+        m_TileList.BindObjectUnsafe(&m_aTile[i]);
     }
 
     std::memset(m_aiTurnType, 0xFF, sizeof(m_aiTurnType));

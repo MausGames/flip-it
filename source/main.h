@@ -55,7 +55,7 @@
 #define PLAYER_SPEED_SLOW   (6.0f)
 #define PLAYER_SPEED_FAST   (18.0f)
 #define PLAYER_ACCELERATION (200.0f)
-#define PLAYER_BRAKE        (14.0f)
+#define PLAYER_BRAKE        (16.0f)
 
 #define ITEM_SIZE           (5.0f)
 #define ITEM_DELAY          (5.0f)
