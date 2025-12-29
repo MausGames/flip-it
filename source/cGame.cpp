@@ -10,7 +10,7 @@
 
 
 // ****************************************************************
-cGame::cGame()noexcept
+CGame::CGame()noexcept
 : m_fItemDelay    (ITEM_DELAY)
 , m_iItemLastPos  (0u)
 , m_iItemLastType (0u)
@@ -35,14 +35,14 @@ cGame::cGame()noexcept
 
 
 // ****************************************************************
-cGame::~cGame()
+CGame::~CGame()
 {
     this->ClearItems();
 }
 
 
 // ****************************************************************
-void cGame::Render()
+void CGame::Render()
 {
     glDisable(GL_DEPTH_TEST);
     {
@@ -59,7 +59,7 @@ void cGame::Render()
 
 
 // ****************************************************************
-void cGame::Move()
+void CGame::Move()
 {
     if(Core::Input->GetAnyButton(CORE_INPUT_PRESS) && !Core::Input->GetKeyboardButton(CORE_INPUT_KEY(SPACE), CORE_INPUT_PRESS))
     {
@@ -101,9 +101,9 @@ void cGame::Move()
             switch(m_iItemLastType)
             {
             default: UNREACHABLE
-            case 0: this->AddItem(new cSideItem     (Core::Rand->Bool() ? coreVector2(1.0f,0.0f) : coreVector2(0.0f,1.0f)), vPosition); break;
-            case 1: this->AddItem(new cExplosionItem(),                                                                     vPosition); break;
-            case 2: this->AddItem(new cSpeedItem    (),                                                                     vPosition); break;
+            case 0: this->AddItem(new CSideItem     (Core::Rand->Bool() ? coreVector2(1.0f,0.0f) : coreVector2(0.0f,1.0f)), vPosition); break;
+            case 1: this->AddItem(new CExplosionItem(),                                                                     vPosition); break;
+            case 2: this->AddItem(new CSpeedItem    (),                                                                     vPosition); break;
             }
 
             m_fItemDelay = ITEM_DELAY;
@@ -154,7 +154,7 @@ void cGame::Move()
             }
         }
 
-        Core::Manager::Object->TestCollision(1, [](cPlayer* OUTPUT pPlayer1, cPlayer* OUTPUT pPlayer2, const coreVector3 vIntersection, const coreBool bFirstHit)
+        Core::Manager::Object->TestCollision(1, [](CPlayer* OUTPUT pPlayer1, CPlayer* OUTPUT pPlayer2, const coreVector3 vIntersection, const coreBool bFirstHit)
         {
             if(!bFirstHit) return;
 
@@ -176,7 +176,7 @@ void cGame::Move()
 
 
 // ****************************************************************
-void cGame::AddItem(cItem* pItem, const coreVector2 vPosition)
+void CGame::AddItem(IItem* pItem, const coreVector2 vPosition)
 {
     pItem->SetPosition(coreVector3(vPosition, 0.0f));
     m_apItem.push_back(pItem);
@@ -184,7 +184,7 @@ void cGame::AddItem(cItem* pItem, const coreVector2 vPosition)
 
 
 // ****************************************************************
-void cGame::ClearItems()
+void CGame::ClearItems()
 {
     FOR_EACH(it, m_apItem)
         SAFE_DELETE(*it)

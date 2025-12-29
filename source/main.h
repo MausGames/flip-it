@@ -89,8 +89,8 @@
 
 // ****************************************************************
 // global variables
-extern cField* const g_pField;
-extern cGame*  const g_pGame;
+extern CField* const g_pField;
+extern CGame*  const g_pGame;
 
 
 #endif // _FLI_GUARD_MAIN_H_

@@ -10,7 +10,7 @@
 
 
 // ****************************************************************
-cField::cField()noexcept
+CField::CField()noexcept
 : m_TileList    (SIZE_TOTAL_EXT)
 , m_afTurnTime  {}
 , m_aiTurnColor {}
@@ -44,7 +44,7 @@ cField::cField()noexcept
 
 
 // ****************************************************************
-void cField::Render()
+void CField::Render()
 {
     for(coreUintW i = 0u; i < SIZE_TOTAL_EXT; ++i)
     {
@@ -55,7 +55,7 @@ void cField::Render()
 
 
 // ****************************************************************
-void cField::Move()
+void CField::Move()
 {
     for(coreUintW i = 0u; i < SIZE_TOTAL_EXT; ++i)
     {
@@ -105,7 +105,7 @@ void cField::Move()
 
 
 // ****************************************************************
-void cField::TurnTile(const coreUintW iIndex, const coreVector3 vNewColor, const coreUint8 iNewType, const coreFloat fDelay)
+void CField::TurnTile(const coreUintW iIndex, const coreVector3 vNewColor, const coreUint8 iNewType, const coreFloat fDelay)
 {
     ASSERT(iIndex < SIZE_TOTAL_EXT)
 
@@ -123,14 +123,14 @@ void cField::TurnTile(const coreUintW iIndex, const coreVector3 vNewColor, const
 
 
 // ****************************************************************
-void cField::Extend()
+void CField::Extend()
 {
     if(m_bExtended) return;
     m_bExtended = true;
 
     for(coreUintW i = 0u; i < SIZE_TOTAL_EXT; ++i)
     {
-        if(cField::IsExtendedTile(i))
+        if(CField::IsExtendedTile(i))
         {
             const coreFloat fDelay = (m_aTile[i].GetPosition().xy() - FIELD_POSITION * 0.5f).Length() * 0.02f - 0.6f;
 
@@ -142,16 +142,16 @@ void cField::Extend()
 
 
 // ****************************************************************
-coreBool cField::SkipExtendedTile(const coreUintW iIndex)const
+coreBool CField::SkipExtendedTile(const coreUintW iIndex)const
 {
     ASSERT(iIndex < SIZE_TOTAL_EXT)
 
-    return !m_bExtended && cField::IsExtendedTile(iIndex);
+    return !m_bExtended && CField::IsExtendedTile(iIndex);
 }
 
 
 // ****************************************************************
-coreBool cField::IsExtendedTile(const coreUintW iIndex)
+coreBool CField::IsExtendedTile(const coreUintW iIndex)
 {
     ASSERT(iIndex < SIZE_TOTAL_EXT)
 
@@ -164,7 +164,7 @@ coreBool cField::IsExtendedTile(const coreUintW iIndex)
 
 
 // ****************************************************************
-coreUint32 cField::CalcCount(const coreUint8 iType)const
+coreUint32 CField::CalcCount(const coreUint8 iType)const
 {
     coreUint32 iCount = 0u;
 
@@ -182,7 +182,7 @@ coreUint32 cField::CalcCount(const coreUint8 iType)const
 
 
 // ****************************************************************
-coreFloat cField::CalcPercent(const coreUint8 iType)const
+coreFloat CField::CalcPercent(const coreUint8 iType)const
 {
     return I_TO_F(this->CalcCount(iType)) / I_TO_F(m_bExtended ? SIZE_TOTAL_EXT : SIZE_TOTAL);
 }

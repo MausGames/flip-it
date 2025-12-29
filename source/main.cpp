@@ -8,8 +8,8 @@
 /////////////////////////////////////////////////////
 #include "main.h"
 
-STATIC_MEMORY(cField, g_pField)
-STATIC_MEMORY(cGame,  g_pGame)
+STATIC_MEMORY(CField, g_pField)
+STATIC_MEMORY(CGame,  g_pGame)
 
 
 // ****************************************************************

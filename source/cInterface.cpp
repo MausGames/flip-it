@@ -10,7 +10,7 @@
 
 
 // ****************************************************************
-cInterface::cInterface()noexcept
+CInterface::CInterface()noexcept
 {
     for(coreUintW i = 0u; i < PLAYERS; ++i)
     {
@@ -52,7 +52,7 @@ cInterface::cInterface()noexcept
 
 
 // ****************************************************************
-void cInterface::Render()
+void CInterface::Render()
 {
     for(coreUintW i = 0u; i < PLAYERS; ++i)
         m_Identifier[i].Render();
@@ -67,7 +67,7 @@ void cInterface::Render()
 
 
 // ****************************************************************
-void cInterface::Move()
+void CInterface::Move()
 {
     for(coreUintW i = 0u; i < PLAYERS; ++i)
     {
@@ -127,7 +127,7 @@ void cInterface::Move()
 
 
 // ****************************************************************
-void cInterface::SetColor(const coreUintW iIndex, const coreVector3 vColor)
+void CInterface::SetColor(const coreUintW iIndex, const coreVector3 vColor)
 {
     ASSERT(iIndex < PLAYERS)
 

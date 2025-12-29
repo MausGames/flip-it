@@ -12,7 +12,7 @@
 
 
 // ****************************************************************
-class cPlayer final : public coreObject3D
+class CPlayer final : public coreObject3D
 {
 private:
     coreUint8 m_iTileType;
@@ -24,9 +24,9 @@ private:
 
 
 public:
-    cPlayer()noexcept;
+    CPlayer()noexcept;
 
-    DISABLE_COPY(cPlayer)
+    DISABLE_COPY(CPlayer)
 
     void Render()final;
     void Move  ()final;

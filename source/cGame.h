@@ -12,32 +12,32 @@
 
 
 // ****************************************************************
-class cGame final
+class CGame final
 {
 private:
-    cPlayer m_aPlayer[PLAYERS];
+    CPlayer m_aPlayer[PLAYERS];
 
-    coreList<cItem*> m_apItem;
-    coreFlow  m_fItemDelay;
-    coreUint8 m_iItemLastPos;
-    coreUint8 m_iItemLastType;
+    coreList<IItem*> m_apItem;
+    coreFlow         m_fItemDelay;
+    coreUint8        m_iItemLastPos;
+    coreUint8        m_iItemLastType;
 
-    cInterface m_Interface;
+    CInterface m_Interface;
 
     coreFlow m_fTime;
     coreBool m_bStarted;
 
 
 public:
-    cGame()noexcept;
-    ~cGame();
+    CGame()noexcept;
+    ~CGame();
 
-    DISABLE_COPY(cGame)
+    DISABLE_COPY(CGame)
 
     void Render();
     void Move();
 
-    void AddItem(cItem* pItem, const coreVector2 vPosition);
+    void AddItem(IItem* pItem, const coreVector2 vPosition);
     void ClearItems();
 
     inline const coreFloat& GetTime()const {return m_fTime;}

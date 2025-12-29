@@ -12,22 +12,22 @@
 
 
 // ****************************************************************
-class INTERFACE cItem : public coreObject3D
+class INTERFACE IItem : public coreObject3D
 {
 protected:
     coreUint8 m_iState;
 
 
 public:
-    cItem()noexcept;
-    virtual ~cItem()override = default;
+    IItem()noexcept;
+    virtual ~IItem()override = default;
 
-    ENABLE_COPY(cItem)
+    ENABLE_COPY(IItem)
 
     void Render()final;
     void Move  ()final;
 
-    virtual void ApplyEffect(cPlayer* OUTPUT pPlayer) {}
+    virtual void ApplyEffect(CPlayer* OUTPUT pPlayer) {}
     virtual void MoveEffect ()                        {}
 
     inline const coreUint8& GetState()const {return m_iState;}
@@ -35,43 +35,43 @@ public:
 
 
 // ****************************************************************
-class cSideItem final : public cItem
+class CSideItem final : public IItem
 {
 public:
-    cSideItem(const coreVector2 vDir)noexcept;
+    CSideItem(const coreVector2 vDir)noexcept;
 
-    ENABLE_COPY(cSideItem)
+    ENABLE_COPY(CSideItem)
 
-    void ApplyEffect(cPlayer* OUTPUT pPlayer)final;
+    void ApplyEffect(CPlayer* OUTPUT pPlayer)final;
 };
 
 
 // ****************************************************************
-class cExplosionItem final : public cItem
+class CExplosionItem final : public IItem
 {
 public:
-    cExplosionItem()noexcept;
+    CExplosionItem()noexcept;
 
-    ENABLE_COPY(cExplosionItem)
+    ENABLE_COPY(CExplosionItem)
 
-    void ApplyEffect(cPlayer* OUTPUT pPlayer)final;
+    void ApplyEffect(CPlayer* OUTPUT pPlayer)final;
 };
 
 
 // ****************************************************************
-class cSpeedItem final : public cItem
+class CSpeedItem final : public IItem
 {
 protected:
-    cPlayer* m_pPlayer;
+    CPlayer* m_pPlayer;
     coreFlow m_fTime;
 
 
 public:
-    cSpeedItem()noexcept;
+    CSpeedItem()noexcept;
 
-    ENABLE_COPY(cSpeedItem)
+    ENABLE_COPY(CSpeedItem)
 
-    void ApplyEffect(cPlayer* OUTPUT pPlayer)final;
+    void ApplyEffect(CPlayer* OUTPUT pPlayer)final;
     void MoveEffect ()final;
 };
 

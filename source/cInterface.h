@@ -12,7 +12,7 @@
 
 
 // ****************************************************************
-class cInterface final
+class CInterface final
 {
 private:
     coreObject2D m_Identifier[PLAYERS];
@@ -24,9 +24,9 @@ private:
 
 
 public:
-    cInterface()noexcept;
+    CInterface()noexcept;
 
-    DISABLE_COPY(cInterface)
+    DISABLE_COPY(CInterface)
 
     void Render();
     void Move();

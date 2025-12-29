@@ -10,7 +10,7 @@
 
 
 // ****************************************************************
-cPlayer::cPlayer()noexcept
+CPlayer::CPlayer()noexcept
 : m_iTileType    (0u)
 , m_iControlType (0u)
 , m_vVelocity    (coreVector2(0.0f,0.0f))
@@ -28,14 +28,14 @@ cPlayer::cPlayer()noexcept
 
 
 // ****************************************************************
-void cPlayer::Render()
+void CPlayer::Render()
 {
     this->coreObject3D::Render();
 }
 
 
 // ****************************************************************
-void cPlayer::Move()
+void CPlayer::Move()
 {
     const coreFloat fTime = g_pGame->GetTime();
     if((fTime < GAME_TIME) && (fTime > 0.0f))
@@ -85,7 +85,7 @@ void cPlayer::Move()
 
 
 // ****************************************************************
-void cPlayer::IncreaseSpeed()
+void CPlayer::IncreaseSpeed()
 {
     if(!m_iSpeedCount) m_fSpeed = PLAYER_SPEED_FAST;
     m_iSpeedCount += 1u;
@@ -93,7 +93,7 @@ void cPlayer::IncreaseSpeed()
 
 
 // ****************************************************************
-void cPlayer::DecreaseSpeed()
+void CPlayer::DecreaseSpeed()
 {
     m_iSpeedCount -= 1u;
     if(!m_iSpeedCount) m_fSpeed = PLAYER_SPEED_SLOW;

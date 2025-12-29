@@ -10,7 +10,7 @@
 
 
 // ****************************************************************
-cItem::cItem()noexcept
+IItem::IItem()noexcept
 : m_iState (0u)
 {
     this->DefineModel  ("cube.md3z");
@@ -23,14 +23,14 @@ cItem::cItem()noexcept
 
 
 // ****************************************************************
-void cItem::Render()
+void IItem::Render()
 {
     this->coreObject3D::Render();
 }
 
 
 // ****************************************************************
-void cItem::Move()
+void IItem::Move()
 {
     this->MoveEffect();
     this->coreObject3D::Move();
@@ -38,7 +38,7 @@ void cItem::Move()
 
 
 // ****************************************************************
-cSideItem::cSideItem(const coreVector2 vDir)noexcept
+CSideItem::CSideItem(const coreVector2 vDir)noexcept
 {
     this->SetDirection(coreVector3(vDir, 0.0f));
     this->SetColor3   (COLOR_ORANGE * 0.9f);
@@ -47,7 +47,7 @@ cSideItem::cSideItem(const coreVector2 vDir)noexcept
 
 
 // ****************************************************************
-void cSideItem::ApplyEffect(cPlayer* OUTPUT pPlayer)
+void CSideItem::ApplyEffect(CPlayer* OUTPUT pPlayer)
 {
     const coreVector2 vArea = this->GetDirection().xy() * 1000.0f + this->GetDirection().yx() * ITEM_SIDE_RANGE;
 
@@ -70,7 +70,7 @@ void cSideItem::ApplyEffect(cPlayer* OUTPUT pPlayer)
 
 
 // ****************************************************************
-cExplosionItem::cExplosionItem()noexcept
+CExplosionItem::CExplosionItem()noexcept
 {
     this->SetColor3   (COLOR_RED * 0.9f);
     this->SetTexOffset(coreVector2(0.0f,0.0f));
@@ -78,7 +78,7 @@ cExplosionItem::cExplosionItem()noexcept
 
 
 // ****************************************************************
-void cExplosionItem::ApplyEffect(cPlayer* OUTPUT pPlayer)
+void CExplosionItem::ApplyEffect(CPlayer* OUTPUT pPlayer)
 {
     for(coreUintW i = 0u; i < SIZE_TOTAL_EXT; ++i)
     {
@@ -97,7 +97,7 @@ void cExplosionItem::ApplyEffect(cPlayer* OUTPUT pPlayer)
 
 
 // ****************************************************************
-cSpeedItem::cSpeedItem()noexcept
+CSpeedItem::CSpeedItem()noexcept
 : m_pPlayer (NULL)
 , m_fTime   (0.0f)
 {
@@ -107,7 +107,7 @@ cSpeedItem::cSpeedItem()noexcept
 
 
 // ****************************************************************
-void cSpeedItem::MoveEffect()
+void CSpeedItem::MoveEffect()
 {
     if(m_iState)
     {
@@ -123,7 +123,7 @@ void cSpeedItem::MoveEffect()
 
 
 // ****************************************************************
-void cSpeedItem::ApplyEffect(cPlayer* OUTPUT pPlayer)
+void CSpeedItem::ApplyEffect(CPlayer* OUTPUT pPlayer)
 {
     this->SetEnabled(CORE_OBJECT_ENABLE_MOVE);
 

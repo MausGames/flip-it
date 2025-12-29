@@ -12,7 +12,7 @@
 
 
 // ****************************************************************
-class cField final : public coreObject3D
+class CField final : public coreObject3D
 {
 private:
     coreBatchList m_TileList;
@@ -27,9 +27,9 @@ private:
 
 
 public:
-    cField()noexcept;
+    CField()noexcept;
 
-    DISABLE_COPY(cField)
+    DISABLE_COPY(CField)
 
     void Render()final;
     void Move  ()final;
