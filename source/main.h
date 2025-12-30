@@ -80,11 +80,11 @@
 
 // ****************************************************************
 // game headers
-#include "cField.h"
-#include "cPlayer.h"
-#include "cItem.h"
-#include "cInterface.h"
-#include "cGame.h"
+#include "Field.h"
+#include "Player.h"
+#include "Item.h"
+#include "Interface.h"
+#include "Game.h"
 
 
 // ****************************************************************

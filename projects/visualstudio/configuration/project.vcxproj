@@ -36,21 +36,21 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\source\application.cpp" />
-    <ClCompile Include="..\..\..\source\cField.cpp" />
-    <ClCompile Include="..\..\..\source\cGame.cpp" />
-    <ClCompile Include="..\..\..\source\cInterface.cpp" />
-    <ClCompile Include="..\..\..\source\cItem.cpp" />
-    <ClCompile Include="..\..\..\source\cPlayer.cpp" />
+    <ClCompile Include="..\..\..\source\Field.cpp" />
+    <ClCompile Include="..\..\..\source\Game.cpp" />
+    <ClCompile Include="..\..\..\source\Interface.cpp" />
+    <ClCompile Include="..\..\..\source\Item.cpp" />
+    <ClCompile Include="..\..\..\source\Player.cpp" />
     <ClCompile Include="..\..\..\source\main.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\source\cField.h" />
-    <ClInclude Include="..\..\..\source\cGame.h" />
-    <ClInclude Include="..\..\..\source\cInterface.h" />
-    <ClInclude Include="..\..\..\source\cItem.h" />
-    <ClInclude Include="..\..\..\source\cPlayer.h" />
+    <ClInclude Include="..\..\..\source\Field.h" />
+    <ClInclude Include="..\..\..\source\Game.h" />
+    <ClInclude Include="..\..\..\source\Interface.h" />
+    <ClInclude Include="..\..\..\source\Item.h" />
+    <ClInclude Include="..\..\..\source\Player.h" />
     <ClInclude Include="..\..\..\source\main.h" />
   </ItemGroup>
   <ItemGroup>

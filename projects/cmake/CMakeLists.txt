@@ -19,11 +19,11 @@ set_target_properties(
 
 target_sources(
     FlipIt PRIVATE
-    ${BASE_DIRECTORY}/source/cField.cpp
-    ${BASE_DIRECTORY}/source/cGame.cpp
-    ${BASE_DIRECTORY}/source/cInterface.cpp
-    ${BASE_DIRECTORY}/source/cItem.cpp
-    ${BASE_DIRECTORY}/source/cPlayer.cpp
+    ${BASE_DIRECTORY}/source/Field.cpp
+    ${BASE_DIRECTORY}/source/Game.cpp
+    ${BASE_DIRECTORY}/source/Interface.cpp
+    ${BASE_DIRECTORY}/source/Item.cpp
+    ${BASE_DIRECTORY}/source/Player.cpp
     ${BASE_DIRECTORY}/source/application.cpp
     ${BASE_DIRECTORY}/source/main.cpp
 )
