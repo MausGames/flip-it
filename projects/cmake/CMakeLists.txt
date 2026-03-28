@@ -3,7 +3,14 @@ cmake_minimum_required(VERSION 3.31)
 set(BASE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../..)
 set(ENGINE_DIRECTORY ${BASE_DIRECTORY}/../core-engine)
 
-project(FlipIt VERSION 1.0.0)
+project(
+    FlipIt
+    VERSION 1.0.0
+    DESCRIPTION "Competitive territory game made on Mi'pu'mi day"
+    HOMEPAGE_URL "https://www.maus-games.at"
+    LANGUAGES C CXX
+)
+
 add_subdirectory(${ENGINE_DIRECTORY}/projects/cmake CoreEngine)
 add_executable(FlipIt)
 
@@ -13,8 +20,6 @@ set_target_properties(
     CXX_STANDARD 23
     CXX_SCAN_FOR_MODULES OFF
     DEBUG_POSTFIX _debug
-    BUILD_WITH_INSTALL_RPATH TRUE
-    INSTALL_RPATH $ORIGIN
 )
 
 target_sources(
@@ -60,6 +65,12 @@ else()
     )
 
     if(NOT CORE_DEBUG)
+
+        set_target_properties(
+            FlipIt PROPERTIES
+            BUILD_WITH_INSTALL_RPATH TRUE
+            INSTALL_RPATH $ORIGIN
+        )
 
         add_custom_command(
             TARGET FlipIt POST_BUILD
